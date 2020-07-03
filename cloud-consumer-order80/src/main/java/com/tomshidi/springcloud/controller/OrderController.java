@@ -4,6 +4,7 @@ import com.tomshidi.springcloud.entities.CommonResult;
 import com.tomshidi.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -35,6 +36,14 @@ public class OrderController {
 
     @GetMapping("/get")
     public CommonResult getPayment(@RequestParam("id") Long id) {
-        return restTemplate.getForObject(PAYMENT_URL + "/payment/get?id=" + id, CommonResult.class);
+        ResponseEntity<CommonResult> entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get?id=" + id, CommonResult.class);
+        log.info("entityStatus: {}\t,entityHeader: {}\t,entityBody: {}", entity.getStatusCode(), entity.getHeaders(), entity.getBody());
+        if (entity.getStatusCode().is2xxSuccessful()) {
+            return entity.getBody();
+        }else{
+            return new CommonResult(555, "操作异常");
+        }
+
+//        return restTemplate.getForObject(PAYMENT_URL + "/payment/get?id=" + id, CommonResult.class);
     }
 }
