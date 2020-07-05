@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeUnit;
+
 /**
  * @Author TomShiDi
  * @Since 2020/7/1
@@ -50,6 +52,15 @@ public class PaymentController {
         } else {
             return new CommonResult<>(555, "没有对应记录，查询id: " + id);
         }
+    }
 
+    @GetMapping(value = "/timeout")
+    public String paymentFeignTimeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
     }
 }
