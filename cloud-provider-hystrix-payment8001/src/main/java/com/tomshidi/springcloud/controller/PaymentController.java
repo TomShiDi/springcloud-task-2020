@@ -38,4 +38,11 @@ public class PaymentController {
         log.info("********result:\t{}", result);
         return result;
     }
+
+    @GetMapping("/circuit")
+    public String paymentCircuitBreaker(@RequestParam(name = "id") Integer id) {
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("*******result: {}", result);
+        return result;
+    }
 }

@@ -61,6 +61,11 @@ public class PaymentController {
         }
     }
 
+    @GetMapping("/port")
+    public String getPort() {
+        return serverPort;
+    }
+
     @GetMapping("/discovery")
     public Object discovery() {
         List<String> services = discoveryClient.getServices();

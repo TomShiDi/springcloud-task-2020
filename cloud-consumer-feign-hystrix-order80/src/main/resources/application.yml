@@ -17,7 +17,7 @@ eureka:
 hystrix:
   metrics:
     polling-interval-ms: 5000
-    enabled: false
+    enabled: true
   #feign开启hystrix后ribbon配置失效
 ribbon:
   ReadTimeout: 2000
@@ -27,5 +27,6 @@ ribbon:
 #feign默认值1秒，所以同时开启两个hystrix的情况下，@HystrixCommand中设置超过1秒则无效
 feign:
   hystrix:
-    enabled: false
+    enabled: true
+
 

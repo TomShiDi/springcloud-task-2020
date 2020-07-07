@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Version 1.0
  */
 @Component
-@FeignClient(name = "CLOUD-PROVIDER-HYSTRIX-PAYMENT")
+@FeignClient(name = "CLOUD-PROVIDER-HYSTRIX-PAYMENT", fallback = PaymentFallbackService.class)
 public interface PaymentHystrixService {
     @GetMapping(path = "/payment/hystrix/ok")
     public String paymentInfo_OK(@RequestParam(name = "id") Integer id);
