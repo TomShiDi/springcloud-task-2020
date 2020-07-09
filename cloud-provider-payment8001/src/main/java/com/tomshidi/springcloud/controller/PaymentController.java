@@ -50,7 +50,8 @@ public class PaymentController {
     }
 
     @GetMapping("/get")
-    public CommonResult<Payment> getPaymentById(@RequestParam(name = "id") Long id) {
+    public CommonResult<Payment> getPaymentById(@RequestParam(name = "id") Long id,
+                                                @RequestParam(name = "name",required = false) String name) {
         Payment result = paymentService.getPaymentById(id);
         log.info("*******查询结果: " + result);
 
