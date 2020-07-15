@@ -12,6 +12,14 @@ public class Payment implements Serializable {
 
     private String serial;
 
+    public Payment() {
+    }
+
+    public Payment(Long id, String serial) {
+        this.id = id;
+        this.serial = serial;
+    }
+
     public Long getId() {
         return id;
     }
