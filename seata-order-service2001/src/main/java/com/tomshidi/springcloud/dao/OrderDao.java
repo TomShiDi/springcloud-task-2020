@@ -14,13 +14,14 @@ public interface OrderDao {
     /**
      * 创建订单
      * @param order 订单信息
+     * @return 数据库记录编号
      */
-    void create(Order order);
+    long create(Order order);
 
     /**
      * 修改订单状态 0为创建中,1为创建完毕
-     * @param userId 用户编号
+     * @param id 订单编号
      * @param status 状态值0或者1
      */
-    void update(@Param("userId") Long userId, @Param("status") Integer status);
+    void updateOrderStatus(@Param("id") Long id, @Param("status") Integer status);
 }

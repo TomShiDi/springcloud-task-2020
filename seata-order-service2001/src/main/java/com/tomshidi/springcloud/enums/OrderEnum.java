@@ -1,24 +1,26 @@
-package com.tomshidi.springcloud.domain;
+package com.tomshidi.springcloud.enums;
 
 /**
  * @Author TomShiDi
  * @Since 2020/7/17
  * @Version 1.0
  */
-public class CommonResult<T> {
+public enum OrderEnum {
+    /**
+     *
+     */
+    ORDER_CREATING(0,"订单创建中"),
+    ORDER_CREATED(1, "订单创建完毕"),
+    ;
+
+
     private Integer code;
 
     private String message;
 
-    private T data;
-
-    public CommonResult() {
-    }
-
-    public CommonResult(Integer code, String message, T data) {
+    OrderEnum(Integer code, String message) {
         this.code = code;
         this.message = message;
-        this.data = data;
     }
 
     public Integer getCode() {
@@ -35,13 +37,5 @@ public class CommonResult<T> {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
     }
 }
