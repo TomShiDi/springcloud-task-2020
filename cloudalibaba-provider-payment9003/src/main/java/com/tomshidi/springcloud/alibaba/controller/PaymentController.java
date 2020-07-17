@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author TomShiDi
@@ -31,6 +32,11 @@ public class PaymentController {
     @GetMapping("/paymentSQL")
     public CommonResult<Payment> paymentSQL(@RequestParam(name = "id") Long id) {
         Payment payment = map.get(id);
+//        try {
+//            TimeUnit.SECONDS.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         CommonResult<Payment> result = new CommonResult<>(200, "from mysql,serverPort: " + serverPort, payment);
         return result;
     }

@@ -2,10 +2,12 @@ package com.tomshidi.springcloud.alibaba.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
+import com.tomshidi.springcloud.alibaba.service.PaymentService;
 import com.tomshidi.springcloud.entities.CommonResult;
 import com.tomshidi.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -19,12 +21,16 @@ import javax.annotation.Resource;
  */
 @RestController
 @Slf4j
+@RequestMapping(value = "/consumer")
 public class CircleBreakerController {
 
     public static final String SERVICE_URL = "http://nacos-payment-provider";
 
     @Resource
     private RestTemplate restTemplate;
+
+    @Resource
+    private PaymentService paymentService;
 
     @GetMapping(value = "/consumer/fallback")
 //    @SentinelResource(value = "fallback")
@@ -52,5 +58,11 @@ public class CircleBreakerController {
     public CommonResult blockHandler(Long id, BlockException blockException) {
         Payment payment = new Payment(id, "null");
         return new CommonResult<>(444, "blockHandler-sentinel限流，无此流水号,blockException: " + blockException.getMessage(), payment);
+    }
+
+    @GetMapping(value = "/paymentSQL")
+    @SentinelResource(value = "paymentSQL",blockHandler = "blockHandler")
+    public CommonResult<Payment> paymentSQL(@RequestParam(name = "id") Long id) {
+        return paymentService.paymentSQL(id);
     }
 }
