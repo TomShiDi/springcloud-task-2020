@@ -24,14 +24,15 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     private OrderDao orderDao;
 
-//    @Resource
+    @Resource
     private StorageService storageService;
 
-//    @Resource
+    @Resource
     private AccountService accountService;
 
     @Override
     public void create(Order order) {
+
         log.info("------->开始新建订单");
         long id = orderDao.create(order);
         log.info("------->订单创建结束");
@@ -45,7 +46,7 @@ public class OrderServiceImpl implements OrderService {
         log.info("-------> 订单微服务调用账户，减余额 结束");
 
         log.info("-------> 修改订单状态开始");
-        orderDao.updateOrderStatus(id, OrderEnum.ORDER_CREATING.getCode());
+        orderDao.updateOrderStatus(id, OrderEnum.ORDER_CREATED.getCode());
         log.info("-------> 修改订单状态结束");
     }
 

@@ -3,8 +3,8 @@
 <mapper namespace="com.tomshidi.springcloud.dao.StorageDao">
     <update id="decrease">
         update t_storage
-        set t_storage.used = t_storage.used + ${count},residue = residue - ${count}
-        where product_id = ${productId}
+        set t_storage.used = t_storage.used + #{count},residue = residue - #{count}
+        where product_id = #{productId}
 
     </update>
 </mapper>

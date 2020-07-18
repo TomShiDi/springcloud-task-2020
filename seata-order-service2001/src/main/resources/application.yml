@@ -22,10 +22,29 @@ spring:
 feign:
   hystrix:
     enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enable: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1000
 logging:
   level:
     io:
       seata: info
+    com:
+      tomshidi:
+        springcloud:
+          dao: debug
 mybatis:
 #  mapper-locations: classpath*:mapper/*.xml
   mapperLocations: classpath*:mapper/*.xml

@@ -5,6 +5,7 @@ import com.tomshidi.springcloud.domain.Storage;
 import com.tomshidi.springcloud.service.StorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -23,7 +24,7 @@ public class StorageController {
     private StorageService storageService;
 
     @RequestMapping("/decrease")
-    public CommonResult<Storage> decrease(Long productId, Integer count) {
+    public CommonResult<Storage> decrease(@RequestParam(name = "productId") Long productId, @RequestParam(name = "count") Integer count) {
         storageService.decrease(productId, count);
         return new CommonResult<Storage>(200, "扣减库存成功", null);
     }

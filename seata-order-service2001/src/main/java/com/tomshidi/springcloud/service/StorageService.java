@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Since 2020/7/17
  * @Version 1.0
  */
-//@FeignClient(value = "seata-storage-service")
+@FeignClient(value = "seata-storage-service")
 public interface StorageService {
     /**
      * 远程服务调用 库存减
