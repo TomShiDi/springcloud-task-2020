@@ -36,7 +36,7 @@ hystrix:
           enable: true
         isolation:
           thread:
-            timeoutInMilliseconds: 1000
+            timeoutInMilliseconds: 500
 logging:
   level:
     io:

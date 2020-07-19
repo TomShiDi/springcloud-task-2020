@@ -6,6 +6,7 @@ import com.tomshidi.springcloud.enums.OrderEnum;
 import com.tomshidi.springcloud.service.AccountService;
 import com.tomshidi.springcloud.service.OrderService;
 import com.tomshidi.springcloud.service.StorageService;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +31,7 @@ public class OrderServiceImpl implements OrderService {
     @Resource
     private AccountService accountService;
 
+    @GlobalTransactional(name = "fsp-create-order",rollbackFor = Exception.class)
     @Override
     public void create(Order order) {
 
