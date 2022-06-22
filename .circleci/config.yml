@@ -34,7 +34,7 @@ jobs:
     working_directory: ~/repo
     # 执行环境为docker  run the steps with Docker
     docker:
-      - image: circleci/openjdk:8-jdk-stretch
+      - image: circleci/openjdk:8.0.302
       # a collection of executable commands ，当前jobs要执行的具体步骤
     steps:
       # check out source code to working directory 检出源码到工作目录
