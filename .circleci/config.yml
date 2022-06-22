@@ -26,6 +26,8 @@ jobs:
       - run:
           name: Test
           command: mvn test
+    # The resource_class feature allows configuring CPU and RAM resources for each job. Different resource classes are available for different executors. https://circleci.com/docs/2.0/configuration-reference/#resourceclass
+    resource_class: large
   # 定义job的名字为【build】 runs not using Workflows must have a `build` job as entry point，
   build:
     # 配置工作目录
@@ -67,11 +69,11 @@ jobs:
           when: on_fail
       # 存储测试结果
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard. 
-        # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-            path: target/surefire-reports
+          # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: target/surefire-reports
       - store_artifacts: # store the uberjar as an artifact
-        # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-            path: target/springcloud-task2020-0.0.1-SNAPSHOT.jar
+          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: target/springcloud-task2020-0.0.1-SNAPSHOT.jar
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
