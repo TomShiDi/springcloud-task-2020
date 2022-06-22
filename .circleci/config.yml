@@ -21,6 +21,9 @@ jobs:
       - run:
           name: echo jdk_home
           command: echo "打印jdk路径：" && echo $JAVA_HOME
+      - run:
+          name: Path ls
+          command: ls /usr/local/buildtools/java/jdk6-google-v4/jre
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
