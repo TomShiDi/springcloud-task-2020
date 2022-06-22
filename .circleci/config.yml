@@ -19,8 +19,8 @@ jobs:
       # Checkout the code as the first step.
       - checkout
       - run:
-          name: echo jdk_home
-          command: echo "打印jdk路径：" && echo $JAVA_HOME
+          name: Echo Env
+          command: printenv
       # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
