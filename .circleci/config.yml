@@ -42,10 +42,10 @@ jobs:
       - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: v1-repo-{{ checksum "pom.xml" }}
-      - run:
-          name: get dependency
+      # - run:
+          # name: get dependency
           # 拉取依赖 gets the project dependencies
-          command: mvn dependency:go-offline
+          # command: mvn dependency:go-offline
       - save_cache: # saves the project dependencies
           paths:
             - ~/.m2
