@@ -1,5 +1,7 @@
 # springcloud-task-2020 练习源码
 [![codecov](https://codecov.io/gh/TomShiDi/springcloud-task-2020/branch/master/graph/badge.svg?token=B7JPXI8L4O)](https://codecov.io/gh/TomShiDi/springcloud-task-2020)
+[![Contributors](https://img.shields.io/github/contributors/TomShiDi/springcloud-task-2020)](https://github.com/TomShiDi/springcloud-task-2020/graphs/contributors)
+
 
 This is a source code for springcloud studying
 
