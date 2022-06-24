@@ -54,9 +54,6 @@ jobs:
           # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
           key: v1-repo-{{ checksum "pom.xml" }}
       - run:
-          name: Echo Env
-          command: printenv
-      - run:
           name: get dependency
           # 拉取依赖 gets the project dependencies
           command: mvn dependency:go-offline
