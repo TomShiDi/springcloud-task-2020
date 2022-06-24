@@ -1,4 +1,6 @@
 # springcloud-task-2020 练习源码
+[![codecov](https://codecov.io/gh/TomShiDi/springcloud-task-2020/branch/master/graph/badge.svg?token=B7JPXI8L4O)](https://codecov.io/gh/TomShiDi/springcloud-task-2020)
+
 This is a source code for springcloud studying
 
 ## 各模块功能以及所用技术总结
