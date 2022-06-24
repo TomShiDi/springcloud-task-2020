@@ -1,5 +1,5 @@
 # springcloud-task-2020 练习源码
-[![Java CI with Maven](https://github.com/TomShiDi/springcloud-task-2020/actions/workflows/maven.yml/badge.svg?branch=master&event=status)](https://github.com/TomShiDi/springcloud-task-2020/actions/workflows/maven.yml)
+[![Java CI with Maven](https://github.com/TomShiDi/springcloud-task-2020/actions/workflows/maven.yml/badge.svg?branch=master)](https://github.com/TomShiDi/springcloud-task-2020/actions/workflows/maven.yml)
 [![codecov](https://codecov.io/gh/TomShiDi/springcloud-task-2020/branch/master/graph/badge.svg?token=B7JPXI8L4O)](https://codecov.io/gh/TomShiDi/springcloud-task-2020)
 [![Contributors](https://img.shields.io/github/contributors/TomShiDi/springcloud-task-2020)](https://github.com/TomShiDi/springcloud-task-2020/graphs/contributors)
 
