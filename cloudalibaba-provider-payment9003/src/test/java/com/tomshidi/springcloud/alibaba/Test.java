@@ -1,6 +1,6 @@
+package com.tomshidi.springcloud.alibaba;
+
 import cn.hutool.core.util.IdUtil;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 
 /**
@@ -9,8 +9,8 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @Version 1.0
  */
 @SpringBootTest
-public class T {
-    @Test
+public class Test {
+    @org.junit.Test
     public void getRandomString() {
         System.out.println(IdUtil.simpleUUID());
     }
